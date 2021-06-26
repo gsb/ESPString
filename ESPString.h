@@ -31,7 +31,7 @@ class ESPString : public Print {
 
   public:
     ESPString(char *buf, size_t size) : _buf(buf), _size(size) { begin(); } // Basic constructor requires a preallocated buffer
-    ~ESPString(){begin();_client=nullptr;}
+    ~ESPString(){_client=nullptr;}
     template<class T> ESPString(char *buf, size_t size, T arg, AsyncClient* target) : _buf(buf), _size(size), _client(target) {begin();print(arg);send();}
     template<class T> ESPString(char *buf, size_t size, T arg) : _buf(buf), _size(size) {begin(); print(arg);}
     template<class T> ESPString(char *buf, size_t size, T arg, int modifier) : _buf(buf), _size(size) { begin(); print(arg, modifier); }
